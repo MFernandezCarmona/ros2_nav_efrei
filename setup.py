@@ -25,8 +25,9 @@ setup(
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
-    entry_points={
+entry_points={
         'console_scripts': [
+            'n2pac = ros2_nav_efrei.action_server_client:main',
         ],
     },
 )
