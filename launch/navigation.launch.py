@@ -8,7 +8,8 @@ from ament_index_python.packages import get_package_share_directory
 import os
 
 def generate_launch_description():
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
+    autostart = LaunchConfiguration('autostart', default=True)
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
 
     rviz_config_dir = os.path.join(
@@ -42,6 +43,7 @@ def generate_launch_description():
             PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
             launch_arguments={
                 'map': map_dir,
+                'autostart': autostart,
                 'use_sim_time': use_sim_time,
                 'params_file': param_dir}.items(),
         )
@@ -72,7 +74,7 @@ def generate_launch_description():
 
     use_sim_time_arg = DeclareLaunchArgument(
             'use_sim_time',
-            default_value='false',
+            default_value='true',
             description='Use simulation (Gazebo) clock if true')
     ld.add_action(use_sim_time_arg)
 
