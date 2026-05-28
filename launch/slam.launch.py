@@ -20,7 +20,7 @@ def generate_launch_description():
         default=os.path.join(
             get_package_share_directory('ros2_nav_efrei'),
             'params',
-            'nav_param.yaml'))
+            'slam_param.yaml'))
     map_dir = LaunchConfiguration(
         'map',
         default=os.path.join(
