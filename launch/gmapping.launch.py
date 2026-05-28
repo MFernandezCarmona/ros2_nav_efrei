@@ -56,7 +56,7 @@ def generate_launch_description():
 
     # teleop window
     teleop_1 = ExecuteProcess(
-                 cmd = ['gnome-terminal', '--', 'ros2' , 'run' , 'turtlebot3_teleop' , 'teleop_keyboard'],
+                 cmd = ['gnome-terminal', '--', 'ros2' , 'run' , 'teleop_twist_keyboard' , 'teleop_twist_keyboard'],
                  output='screen')
     ld.add_action(teleop_1)
 
